@@ -57,18 +57,10 @@
         src: /root/webs/index.html
         dest: /var/www/html/
 
-
-- name: install GIT on all hosts   # Play3 install git kin 
-  hosts: all
-  
-  tasks:
-    - name: Git checkout
-      ansible.builtin.git:
-        repo: 'https://github.com/ritche79/ansible.git'
-        dest: /srv/checkout
-        version: release-0.22
-
-
+    - name: Install the latest git # yum install git -y
+          ansible.builtin.yum:
+            name: git
+            state: latest
 
 
 
